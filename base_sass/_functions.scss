@@ -1,0 +1,4 @@
+@function font($value) {
+    $remValue: calc($value / $mainFont) + rem;
+    @return $remValue;
+  }

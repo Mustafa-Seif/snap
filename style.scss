@@ -1,0 +1,182 @@
+@import "./base_sass/functions";
+@import "./base_sass/mixins";
+@import "./base_sass/var";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Epilogue;
+}
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,700;1,800;1,900&display=swap");
+// =======
+// global style
+ul li {
+  list-style-type: none;
+}
+button,
+input {
+  border: none;
+  outline: none;
+}
+.flex {
+    display: flex;
+  }
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+// ===============
+// variables
+
+// ===============
+
+// Mixins
+
+// ===============
+// placeholders
+%btn {
+  border: solid 1px $firstColor;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  font-weight: 600;
+  cursor: pointer;
+}
+// ===============
+
+nav {
+  padding: 2% 2.5%;
+  .nav_wrapper {
+    justify-content: space-between;
+    align-items: center;
+    ul {
+      margin-right: 50%;
+      //   background-color: red;
+      //   width: 400px;
+
+      li {
+        display: inline;
+        margin-left: 1.3rem;
+        cursor: pointer;
+        position: relative;
+        .slide {
+         display: none;
+          position: absolute;
+          // width: 150px;
+          top: 40px;
+          left: 0;
+          background-color: $secondColor;
+          border-radius: 5px;
+          padding: 15px 5px;
+          padding-right: 40px;
+          text-transform: capitalize;
+          box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.671);
+          -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.671);
+
+          ul{
+              padding: 0;
+          text-align: center;
+                width: 100%;
+            li {
+                @include fonts(.9rem);
+
+                text-align: left;
+                margin-bottom: 5px;
+                // padding-top: 10px;
+                // margin-top: 10px;
+                padding: 0;
+                // color: red;
+                // border: solid 1px red;
+                display: block;
+                width: 100%;
+                
+                img{
+                    // margin-left: 4px;
+                }
+              }
+
+          } 
+        }
+      }
+    }
+    .navRight {
+      // background-color: red;
+      input {
+        background-color: $secondColor;
+        margin-left: 30px;
+        font-weight: 550;
+      }
+      .btn {
+        @extend %btn;
+      }
+    }
+  }
+}
+.logo {
+  // background-color: red;
+}
+
+
+
+.hero {
+  height: 80vh;
+  overflow: hidden;
+  .hero_wrapper {
+    justify-content: space-between;
+    .hero_left {
+      margin-top: 100px;
+      width: 60%;
+
+      h1 {
+        @include fonts(4rem);
+        margin-bottom: 40px;
+      }
+      p {
+        font: {
+          size: 1.1rem;
+          weight: 400;
+        }
+        width: 470px;
+        color: rgba(128, 128, 128, 0.959);
+        margin-bottom: 40px;
+        line-height: 1.4rem;
+      }
+
+      .btn {
+        @extend %btn;
+        padding: 15px 50px;
+        background-color: $firstColor;
+        color: $secondColor;
+        margin-bottom: 40px;
+        &:hover {
+          background-color: $secondColor;
+          color: $firstColor;
+        }
+      }
+      .imgs {
+        @for $i from 1 through length($colors) {
+          li:nth-child(#{$i}) {
+            background: nth($colors, $i);
+          }
+          width: 75px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+.hero_right {
+  width: 40%;
+  img {
+    width: 85%;
+  }
+}
+.show_slide{
+    display: block !important;
+}
+
